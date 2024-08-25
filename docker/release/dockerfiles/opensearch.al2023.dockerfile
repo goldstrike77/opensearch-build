@@ -94,6 +94,7 @@ USER $UID
 ARG DISABLE_INSTALL_DEMO_CONFIG=true
 ARG DISABLE_SECURITY_PLUGIN=false
 RUN ./opensearch-onetime-setup.sh
+RUN ./bin/opensearch-plugin install --batch repository-s3
 
 # Expose ports for the opensearch service (9200 for HTTP and 9300 for internal transport) and performance analyzer (9600 for the agent and 9650 for the root cause analysis component)
 EXPOSE 9200 9300 9600 9650
